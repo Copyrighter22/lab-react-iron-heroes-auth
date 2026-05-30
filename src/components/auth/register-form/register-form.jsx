@@ -1,28 +1,20 @@
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import * as AuthService from "../../../services/auth-service";
-
 function RegisterForm() {
-  // TODO Iteration 1:
-  // 1. Inicializa react-hook-form:
-  //      const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm({ mode: 'all' });
-  // 2. Obten navigate con useNavigate().
-  // 3. Crea handleRegister(user):
-  //      - llama a AuthService.register(user) (POST /users)
-  //      - en exito: navigate('/login')
-  //      - en error 400: recorre error.response.data.errors y llama a
-  //        setError(inputName, { type: 'custom', message: ... }) para cada campo
-  // 4. Renderiza un <form onSubmit={handleSubmit(handleRegister)}> con inputs:
-  //      name (required), email (type email, required),
-  //      username (required), password (type password, required)
-  //    Usa los input-group de bootstrap con iconos fa-* y muestra errors.<campo>.message
-  //    en un <div className="invalid-feedback">. Boton submit deshabilitado si !isValid.
+  // TODO Iteration 2 | Formulario de registro
+  //
+  // Construye un formulario controlado con react-hook-form que permita registrar
+  // un usuario. Debe tener cuatro campos obligatorios: nombre, email, username y
+  // password (este ultimo como campo de tipo password).
+  //
+  // Al enviar el formulario, llama a la funcion register de tu auth-service:
+  //   - Si el registro funciona, redirige al usuario a la pagina de login.
+  //   - Si la API responde con un error 400, muestra junto a cada campo el mensaje
+  //     de error que llega en la respuesta del servidor.
+  //
+  // Maqueta el formulario con Bootstrap (input-group e iconos de Font Awesome) y
+  // deshabilita el boton de enviar mientras el formulario no sea valido.
 
   return (
-    <form>
-      {/* TODO: construye el formulario de registro aqui */}
-      <p className="text-muted">TODO: Register form (Iteration 1)</p>
-    </form>
+    <p className="text-muted">TODO: formulario de registro (Iteration 2)</p>
   );
 }
 

@@ -1,14 +1,12 @@
-// import HeroesItem from "../heroes-item/heroes-item";
-
 function HeroesList({ heroes = [] }) {
-  // TODO Iteration 3:
-  // Recorre `heroes` con .map() y renderiza un <HeroesItem key={hero.id} hero={hero} />
-  // por cada heroe, dentro del contenedor flex de abajo.
+  // TODO Iteration 4 | Lista de heroes
+  //
+  // Recibe por props un array de heroes y renderiza un componente HeroesItem por
+  // cada uno (acuerdate de la prop `key`). Colocalos en un contenedor que los
+  // muestre como una rejilla o lista de tarjetas.
 
   return (
-    <div className="d-flex flex-wrap gap-2 mt-2">
-      {/* TODO: renderiza un HeroesItem por cada heroe */}
-    </div>
+    <p className="text-muted">TODO: lista de heroes (Iteration 4)</p>
   );
 }
 

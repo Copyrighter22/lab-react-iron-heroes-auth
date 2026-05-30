@@ -1,27 +1,20 @@
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import * as AuthService from "../../../services/auth-service";
-
 function LoginForm() {
-  // TODO Iteration 2:
-  // 1. Inicializa react-hook-form (mode: 'all').
-  // 2. const navigate = useNavigate();
-  // 3. Crea handleLogin(credentials):
-  //      - llama a AuthService.login(credentials) (POST /login) -> { user, token }
-  //      - guarda el token y el user en localStorage:
-  //          localStorage.setItem('token', token);
-  //          localStorage.setItem('user', JSON.stringify(user));
-  //      - navigate('/heroes')
-  //      - en error 401: usa setError('username', { type:'custom', message: ... })
-  //        con el mensaje de error.response.data.errors
-  // 4. Renderiza inputs username (required) y password (type password, required)
-  //    con el mismo estilo bootstrap/font-awesome del RegisterForm.
+  // TODO Iteration 3 | Formulario de login
+  //
+  // Construye un formulario controlado con react-hook-form con dos campos
+  // obligatorios: username y password (este ultimo de tipo password).
+  //
+  // Al enviar el formulario, llama a la funcion login de tu auth-service, que
+  // devuelve un objeto con el usuario y un token:
+  //   - Guarda el token y el usuario en el localStorage del navegador.
+  //   - Redirige al usuario a la pagina del listado de heroes.
+  //   - Si la API responde con un error 401, muestra el mensaje de credenciales
+  //     incorrectas que llega en la respuesta del servidor.
+  //
+  // Reutiliza el mismo estilo de Bootstrap y Font Awesome que en el registro.
 
   return (
-    <form>
-      {/* TODO: construye el formulario de login aqui */}
-      <p className="text-muted">TODO: Login form (Iteration 2)</p>
-    </form>
+    <p className="text-muted">TODO: formulario de login (Iteration 3)</p>
   );
 }
 
