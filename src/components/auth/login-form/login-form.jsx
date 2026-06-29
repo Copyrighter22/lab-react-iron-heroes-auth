@@ -1,3 +1,7 @@
+import { useForm } from "react-hook-form";
+import * as AuthService from "../../../services/auth-service";
+import { useNavigate } from "react-router-dom";
+
 function LoginForm() {
   // TODO Iteration 3 | Formulario de login
   //
@@ -13,8 +17,67 @@ function LoginForm() {
   //
   // Reutiliza el mismo estilo de Bootstrap y Font Awesome que en el registro.
 
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({ mode: "all" });
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const reply = await AuthService.login(data);
+      localStorage.setItem("session", JSON.stringify(reply))
+      navigate("/heroes");
+    } catch (error) {
+      if (error.response?.status === 401) {
+        setError("username", { message: error.response.data.errors.username });
+      }
+    }
+  };
+
   return (
-    <p className="text-muted">TODO: formulario de login (Iteration 3)</p>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {/*USER*/}
+        <div className="input-group mb-3">
+          <span className="input-group-text">
+            <i className="fa fa-user fa-fw"></i>
+          </span>
+          <input
+            className="form-control"
+            type="text"
+            {...register("username", {
+              required: true,
+            })}
+            placeholder="Username"
+          />
+        </div>
+        {errors.username && (
+          <p className="text-danger">{errors.username.message}</p>
+        )}
+        {/*PASSWORD*/}
+        <div className="input-group mb-3">
+          <span className="input-group-text">
+            <i className="fa fa-lock fa-fw"></i>
+          </span>
+          <input
+            className="form-control"
+            type="password"
+            {...register("password", {
+              required: true,
+            })}
+            placeholder="Password"
+          />
+        </div>
+        <button className="btn btn-primary w-full" type="submit">
+          {/*SUBMIT BUTTON*/}
+          Iniciar session
+        </button>
+      </form>
+    </>
   );
 }
 
